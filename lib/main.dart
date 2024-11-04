@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         '/vegetarian_food': (context) => const VegetarianFoodScreen(),
         '/vegan_food': (context) => const VeganFoodScreen(),
         '/my_data': (context) => const MyDataScreen(),
-        '/change_email': (context) => const ChangeEmailScreen(),
+        //'/change_email': (context) => const ChangeEmailScreen(),
         '/bmi_calculator': (context) => const BmiCalculatorScreen(),
 
 
