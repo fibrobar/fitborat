@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BmiCalculatorScreen extends StatefulWidget {
-  const BmiCalculatorScreen({Key? key}) : super(key: key);
+  const BmiCalculatorScreen({super.key});
 
   @override
   _BmiCalculatorScreenState createState() => _BmiCalculatorScreenState();
@@ -49,7 +49,8 @@ class _BmiCalculatorScreenState extends State<BmiCalculatorScreen> {
       appBar: AppBar(
         title: const Text('BMI Calculator'),
       ),
-      body: Padding(
+      body:
+      Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -95,9 +96,24 @@ class _BmiCalculatorScreenState extends State<BmiCalculatorScreen> {
                 _bmiCategory,
                 style: const TextStyle(color: Colors.red, fontSize: 18),
               ),
+               Container(
+              //set the background on black with red
+              decoration: const BoxDecoration(
+              gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.black, Colors.red],
+              ),
+              ),
+
+
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+

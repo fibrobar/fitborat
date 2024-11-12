@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'multicolorCard.dart';
 //this will be the homescreen of the app
 //make 3 buttons that will navigate to the 3 different screens
 //one will navigate to exercise screen that will contain a list of exercises
@@ -9,45 +10,53 @@ import 'package:flutter/material.dart';
 //the app will have a purple color scheme
 
 class Homescreen extends StatelessWidget {
-  const Homescreen({Key? key}) : super(key: key);
+  const Homescreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gym Buddy'),
+        //set the tile in the middle of the app bar and make it bigger
+        title: const Center(child: Text('Gym Buddy', style: TextStyle(fontSize: 60))),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {
+      body: Container(
+        //set the background on black with red
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.blue, Colors.white],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(onPressed: ()
+              {
                 Navigator.pushNamed(context, '/exercise');
               },
               child: const Text('Exercises'),
-            ),
-            ElevatedButton(
-              onPressed: () {
+              ),
+              ElevatedButton(onPressed: () {
                 Navigator.pushNamed(context, '/healthy_food');
+
               },
               child: const Text('Healthy Food'),
-            ),
-            ElevatedButton(
-              onPressed: () {
+              ),
+              ElevatedButton(onPressed: () {
                 Navigator.pushNamed(context, '/my_data');
               },
               child: const Text('My Data'),
-
-            ),
-            //make a buuton for bmi calculator
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/bmi_calculator');
-              },
-              child: const Text('BMI Calculator'),
-            ),
-          ],
+              ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/bmi_calculator');
+            },
+            child: const Text('BMI Calculator'),
+          ),
+            ],
+          ),
         ),
       ),
     );

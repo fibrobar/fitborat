@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:proba/BaseLayout.dart';
 
 class HealtyFoodScreen extends StatelessWidget {
-  const HealtyFoodScreen({Key? key}) : super(key: key);
+  const HealtyFoodScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +10,17 @@ class HealtyFoodScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Healthy Food'),
       ),
-      body: Center(
+      body: Container(
+    //set the background on black with red
+    decoration: const BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Colors.black, Colors.red],
+    ),
+    ),
+    child:
+      Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -34,6 +45,7 @@ class HealtyFoodScreen extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }
