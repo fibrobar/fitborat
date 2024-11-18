@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/exercise': (context) => const ExerciseScreen(),
         '/my_data': (context) => const MyDataScreen(),
         '/bmi_calculator': (context) => const BmiCalculatorScreen(),
-       // '/exercise/1': (context) => const Exercise1Screen(),
+        //'/exercise/1': (context) => const Exercise1Screen(),
        // '/exercise/2': (context) => const Exercise2Screen(),
        // '/exercise/3': (context) => const Exercise3Screen(),
         '/healthy_food': (context) => const HealtyFoodScreen(),
