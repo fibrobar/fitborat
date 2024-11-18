@@ -4,6 +4,9 @@ import 'package:proba/exercise.dart';
 import 'package:proba/my_data.dart';
 import 'package:proba/bmi_calculator.dart';
 import 'package:proba/healthy_food.dart';
+import 'package:proba/vegan_food.dart';
+import 'package:proba/normal_food.dart';
+import 'package:proba/vegetarian_food.dart';
 //import flutter_svg package
 
 
@@ -44,9 +47,9 @@ class MyApp extends StatelessWidget {
        // '/exercise/2': (context) => const Exercise2Screen(),
        // '/exercise/3': (context) => const Exercise3Screen(),
         '/healthy_food': (context) => const HealtyFoodScreen(),
-        //'/normal_food': (context) => const NormalFoodScreen(),
-       // '/vegetarian_food': (context) => const VegetarianFoodScreen(),
-       // '/vegan_food': (context) => const VeganFoodScreen(),
+        '/normal_food': (context) => const NormalFood(),
+        '/vegetarian_food': (context) => const VegetarianFood(),
+        '/vegan_food': (context) => const VeganFood(),
       },
     );
   }
