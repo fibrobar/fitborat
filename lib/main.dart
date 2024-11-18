@@ -7,6 +7,7 @@ import 'package:proba/healthy_food.dart';
 import 'package:proba/vegan_food.dart';
 import 'package:proba/normal_food.dart';
 import 'package:proba/vegetarian_food.dart';
+import 'package:proba/logInScreen.dart';
 //import flutter_svg package
 
 
@@ -36,10 +37,11 @@ class MyApp extends StatelessWidget {
       ),
     home: Stack(
     children: [
-    const Homescreen(),
+    const LogInScreen(),
     ],
     ),
       routes: {
+        '/home': (context) => const Homescreen(),
         '/exercise': (context) => const ExerciseScreen(),
         '/my_data': (context) => const MyDataScreen(),
         '/bmi_calculator': (context) => const BmiCalculatorScreen(),
