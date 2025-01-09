@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proba/home_screen.dart';
+import 'package:proba/home_screen.dart'; // Import the HomeScreen class
+import 'package:proba/my_data.dart'; // Import the MyDataScreen class (if needed)
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -17,7 +18,7 @@ class _LogInScreenState extends State<LogInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Log In'),
+      title: const Text('FITBORAT'),
         backgroundColor: Colors.teal,
         elevation: 0,
       ),
@@ -64,7 +65,6 @@ class _LogInScreenState extends State<LogInScreen> {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
                     }
-                    // Regular expression for basic email validation
                     final RegExp emailRegex = RegExp(
                       r'^[^@]+@[^@]+\.[^@]+',
                     );
@@ -96,11 +96,14 @@ class _LogInScreenState extends State<LogInScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.push(
+                      // Save email and password to global variables
+                      email = _emailController.text;
+                      password = _passwordController.text;
+
+                      // Navigate to HomeScreen
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => const Homescreen(),
-                        ),
+                        MaterialPageRoute(builder: (context) => const Homescreen()),
                       );
                     }
                   },

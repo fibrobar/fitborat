@@ -8,11 +8,6 @@ import 'package:proba/vegan_food.dart';
 import 'package:proba/normal_food.dart';
 import 'package:proba/vegetarian_food.dart';
 import 'package:proba/logInScreen.dart';
-//import flutter_svg package
-
-
-
-
 
 void main() {
   runApp(const MyApp());
@@ -21,34 +16,28 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Gym Buddy',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: TextStyle(color: Colors.black, fontSize: 18),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
         ),
       ),
-    home: Stack(
-    children: [
-    const LogInScreen(),
-    ],
-    ),
+      // Remove the stack widget and make the initial route the LogInScreen
+      home: const LogInScreen(),
       routes: {
+        // Named routes for each screen
         '/home': (context) => const Homescreen(),
         '/exercise': (context) => const ExerciseScreen(),
         '/my_data': (context) => const MyDataScreen(),
         '/bmi_calculator': (context) => const BmiCalculatorScreen(),
-       // '/exercise/1': (context) => const Exercise1Screen(),
-       // '/exercise/2': (context) => const Exercise2Screen(),
-       // '/exercise/3': (context) => const Exercise3Screen(),
-        '/healthy_food': (context) => const HealtyFoodScreen(),
+        '/healthy_food': (context) => const HealthyFoodScreen(),
         '/normal_food': (context) => const NormalFood(),
         '/vegetarian_food': (context) => const VegetarianFood(),
         '/vegan_food': (context) => const VeganFood(),
@@ -56,5 +45,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 

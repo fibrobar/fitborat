@@ -1,187 +1,58 @@
 import 'package:flutter/material.dart';
 
-class MyDataScreen extends StatefulWidget {
+// Global variables to hold the email and password
+String email = '';
+String password = '';
+
+// Helper widget to display data in a card
+Widget _buildInfoCard(String title, String data, IconData icon) {
+  return Card(
+    margin: const EdgeInsets.symmetric(horizontal: 30),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+    elevation: 5,
+    child: ListTile(
+      leading: Icon(icon, color: Colors.deepPurple),
+      title: Text(
+        '$title: $data',
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+      ),
+    ),
+  );
+}
+
+class MyDataScreen extends StatelessWidget {
   const MyDataScreen({super.key});
 
   @override
-  _MyDataScreenState createState() => _MyDataScreenState();
-}
-
-class _MyDataScreenState extends State<MyDataScreen> {
-  String name = 'John Doe';
-  String email = 'johndoe@example.com';
-
-  @override
   Widget build(BuildContext context) {
+    // Use the global variables for email and password
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Data'),
+        title: const Text(
+          'My Data',
+          style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
+        ),
+        backgroundColor: Colors.deepPurple[800],
+        centerTitle: true,
+        elevation: 10,
       ),
-      //make the background color of the body multiple colors
-
-
-
-
-
-      body:Container(
+      body: Container(
         decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Colors.black, Colors.white],
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.deepPurple, Colors.blueAccent],
+          ),
         ),
-        ),
-        child:
-      Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Name: $name'),
-            Text('Email: $email'),
-            ElevatedButton(
-              onPressed: () async {
-                // Navigate to ChangeEmailScreen and wait for the new email
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChangeEmailScreen(initialEmail: email),
-                  ),
-                );
-                // If a new email is returned, update the email
-                if (result != null && result is String) {
-                  setState(() {
-                    email = result;
-                  });
-                }
-              },
-              child: const Text('Change Email'),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                // Navigate to ChangeNameScreen and wait for the new name
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChangeNameScreen(initialName: name),
-                  ),
-                );
-                // If a new name is returned, update the name
-                if (result != null && result is String) {
-                  setState(() {
-                    name = result;
-                  });
-                }
-              },
-              child: const Text('Change Name'),
-            ),
-          ],
-        ),
-      ),
-      ),
-    );
-  }
-}
-
-class ChangeEmailScreen extends StatefulWidget {
-  final String initialEmail;
-  const ChangeEmailScreen({super.key, required this.initialEmail});
-
-  @override
-  _ChangeEmailScreenState createState() => _ChangeEmailScreenState();
-}
-
-class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
-  late TextEditingController _emailController;
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize the TextEditingController with the initial email
-    _emailController = TextEditingController(text: widget.initialEmail);
-  }
-
-  @override
-  void dispose() {
-    // Don't forget to dispose the controller when the widget is disposed
-    _emailController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Change Email'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _emailController, // Use the controller here
-              decoration: const InputDecoration(labelText: 'Enter new email'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Return the new email to the previous screen
-                Navigator.pop(context, _emailController.text);
-              },
-              child: const Text('Save'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ChangeNameScreen extends StatefulWidget {
-  final String initialName;
-  const ChangeNameScreen({super.key, required this.initialName});
-
-  @override
-  _ChangeNameScreenState createState() => _ChangeNameScreenState();
-}
-
-class _ChangeNameScreenState extends State<ChangeNameScreen> {
-  late TextEditingController _nameController;
-
-  @override
-  void initState() {
-    super.initState();
-    // Initialize the TextEditingController with the initial name
-    _nameController = TextEditingController(text: widget.initialName);
-  }
-
-  @override
-  void dispose() {
-    // Don't forget to dispose the controller when the widget is disposed
-    _nameController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Change Name'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _nameController, // Use the controller here
-              decoration: const InputDecoration(labelText: 'Enter new name'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Return the new name to the previous screen
-                Navigator.pop(context, _nameController.text);
-              },
-              child: const Text('Save'),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buildInfoCard('Email', email, Icons.email),
+              const SizedBox(height: 20),
+              _buildInfoCard('Password', password, Icons.lock),
+            ],
+          ),
         ),
       ),
     );

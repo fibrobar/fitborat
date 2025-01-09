@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'multicolorCard.dart';
-//this will be the homescreen of the app
-//make 3 buttons that will navigate to the 3 different screens
-//one will navigate to exercise screen that will contain a list of exercises
-//one will navigate to the healhty food screen that will contain a list of healthy food
-//one will to my data screen that will contain the user's data
-//the name of the app will be gym buddy
-//the app will have a purple color scheme
-
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
 
@@ -16,48 +7,82 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //set the tile in the middle of the app bar and make it bigger
-        title: const Center(child: Text('Gym Buddy', style: TextStyle(fontSize: 60))),
+        title: const Text(
+          'Gym Buddy',
+          style: TextStyle(
+            fontSize: 36,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.purple[800],
+        elevation: 0,
       ),
       body: Container(
-        //set the background on black with red
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.blue, Colors.white],
+            colors: [Colors.deepPurple, Colors.purpleAccent],
           ),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(onPressed: ()
-              {
-                Navigator.pushNamed(context, '/exercise');
-              },
-              child: const Text('Exercises'),
+              _buildCustomButton(
+                context,
+                label: 'Exercises',
+                icon: Icons.fitness_center,
+                routeName: '/exercise',
               ),
-              ElevatedButton(onPressed: () {
-                Navigator.pushNamed(context, '/healthy_food');
-
-              },
-              child: const Text('Healthy Food'),
+              const SizedBox(height: 20),
+              _buildCustomButton(
+                context,
+                label: 'Healthy Food',
+                icon: Icons.fastfood,
+                routeName: '/healthy_food',
               ),
-              ElevatedButton(onPressed: () {
-                Navigator.pushNamed(context, '/my_data');
-              },
-              child: const Text('My Data'),
+              const SizedBox(height: 20),
+              _buildCustomButton(
+                context,
+                label: 'My Data',
+                icon: Icons.person,
+                routeName: '/my_data',
               ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/bmi_calculator');
-            },
-            child: const Text('BMI Calculator'),
-          ),
+              const SizedBox(height: 20),
+              _buildCustomButton(
+                context,
+                label: 'BMI Calculator',
+                icon: Icons.calculate,
+                routeName: '/bmi_calculator',
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildCustomButton(BuildContext context,
+      {required String label, required IconData icon, required String routeName}) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        Navigator.pushNamed(context, routeName);
+      },
+      icon: Icon(icon, size: 28, color: Colors.white),
+      label: Text(
+        label,
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+      ),
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.white, backgroundColor: Colors.purple[700], padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        shadowColor: Colors.black,
+        elevation: 8,
       ),
     );
   }
