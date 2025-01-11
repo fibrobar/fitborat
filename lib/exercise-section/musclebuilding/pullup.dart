@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class PullupScreen extends StatefulWidget {
-  const PullupScreen({Key? key}) : super(key: key);
+  const PullupScreen({super.key});
 
   @override
   _PullupScreenState createState() => _PullupScreenState();

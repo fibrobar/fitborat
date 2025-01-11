@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class Run3Screen extends StatefulWidget {
-  const Run3Screen({Key? key}) : super(key: key);
+  const Run3Screen({super.key});
 
   @override
   _Run3ScreenState createState() => _Run3ScreenState();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class BarbellrowScreen extends StatefulWidget {
-  const BarbellrowScreen({Key? key}) : super(key: key);
+  const BarbellrowScreen({super.key});
 
   @override
   _BarbellrowScreenState createState() => _BarbellrowScreenState();

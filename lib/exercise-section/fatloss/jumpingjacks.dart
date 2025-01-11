@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class JumpingjacksScreen extends StatefulWidget {
-  const JumpingjacksScreen({Key? key}) : super(key: key);
+  const JumpingjacksScreen({super.key});
 
   @override
   _JumpingjacksScreenState createState() => _JumpingjacksScreenState();

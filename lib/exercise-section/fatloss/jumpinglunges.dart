@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class JumpinglungesScreen extends StatefulWidget {
-  const JumpinglungesScreen({Key? key}) : super(key: key);
+  const JumpinglungesScreen({super.key});
 
   @override
   _JumpinglungesScreenState createState() => _JumpinglungesScreenState();

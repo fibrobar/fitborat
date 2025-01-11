@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class MountainclimbersScreen extends StatefulWidget {
-  const MountainclimbersScreen({Key? key}) : super(key: key);
+  const MountainclimbersScreen({super.key});
 
   @override
   _MountainclimbersScreenState createState() => _MountainclimbersScreenState();

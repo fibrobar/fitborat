@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class BoxjumpScreen extends StatefulWidget {
-  const BoxjumpScreen({Key? key}) : super(key: key);
+  const BoxjumpScreen({super.key});
 
   @override
   _BoxjumpScreenState createState() => _BoxjumpScreenState();

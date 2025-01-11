@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class BenchpressScreen extends StatefulWidget {
-  const BenchpressScreen({Key? key}) : super(key: key);
+  const BenchpressScreen({super.key});
 
   @override
   _BenchpressScreenState createState() => _BenchpressScreenState();

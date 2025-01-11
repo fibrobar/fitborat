@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class BurpeeScreen extends StatefulWidget {
-  const BurpeeScreen({Key? key}) : super(key: key);
+  const BurpeeScreen({super.key});
 
   @override
   _BurpeeScreenState createState() => _BurpeeScreenState();

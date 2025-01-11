@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class LateralraisesScreen extends StatefulWidget {
-  const LateralraisesScreen({Key? key}) : super(key: key);
+  const LateralraisesScreen({super.key});
 
   @override
   _LateralraisesScreenState createState() => _LateralraisesScreenState();

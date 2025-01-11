@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class DeadliftScreen extends StatefulWidget {
-  const DeadliftScreen({Key? key}) : super(key: key);
+  const DeadliftScreen({super.key});
 
   @override
   _DeadliftScreenState createState() => _DeadliftScreenState();

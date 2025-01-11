@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo; // Alias to avoid conflicts
 
 class Fatloss3 extends StatefulWidget {
-  const Fatloss3({Key? key}) : super(key: key);
+  const Fatloss3({super.key});
 
   @override
   _Fatloss3State createState() => _Fatloss3State();

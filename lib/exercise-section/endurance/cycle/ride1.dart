@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class Ride1Screen extends StatefulWidget {
-  const Ride1Screen({Key? key}) : super(key: key);
+  const Ride1Screen({super.key});
 
   @override
   _Ride1ScreenState createState() => _Ride1ScreenState();

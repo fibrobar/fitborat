@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class BreaststrokeScreen extends StatefulWidget {
-  const BreaststrokeScreen({Key? key}) : super(key: key);
+  const BreaststrokeScreen({super.key});
 
   @override
   _BreaststrokeScreenState createState() => _BreaststrokeScreenState();

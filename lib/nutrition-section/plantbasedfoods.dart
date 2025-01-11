@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo; // Alias to avoid conflicts
 
 class Plantbasedfoods extends StatefulWidget {
-  const Plantbasedfoods({Key? key}) : super(key: key);
+  const Plantbasedfoods({super.key});
 
   @override
   _Plantbasedfoods createState() => _Plantbasedfoods();

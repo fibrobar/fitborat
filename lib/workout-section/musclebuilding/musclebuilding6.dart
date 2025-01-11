@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo; // Alias to avoid conflicts
 
 class MuscleBuilding6 extends StatefulWidget {
-  const MuscleBuilding6({Key? key}) : super(key: key);
+  const MuscleBuilding6({super.key});
 
   @override
   _MuscleBuilding6State createState() => _MuscleBuilding6State();

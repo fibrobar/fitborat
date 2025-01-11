@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class FreestyleScreen extends StatefulWidget {
-  const FreestyleScreen({Key? key}) : super(key: key);
+  const FreestyleScreen({super.key});
 
   @override
   _FreestyleScreenState createState() => _FreestyleScreenState();

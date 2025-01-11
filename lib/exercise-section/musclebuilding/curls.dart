@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class CurlsScreen extends StatefulWidget {
-  const CurlsScreen({Key? key}) : super(key: key);
+  const CurlsScreen({super.key});
 
   @override
   _CurlsScreenState createState() => _CurlsScreenState();

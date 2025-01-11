@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo; // Alias to avoid conflicts
 
 class Cheatmeals extends StatefulWidget {
-  const Cheatmeals({Key? key}) : super(key: key);
+  const Cheatmeals({super.key});
 
   @override
   _CheatmealsState createState() => _CheatmealsState();

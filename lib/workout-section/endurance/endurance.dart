@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo; // Alias to avoid conflicts
 
 class Endurance extends StatefulWidget {
-  const Endurance({Key? key}) : super(key: key);
+  const Endurance({super.key});
 
   @override
   _EnduranceState createState() => _EnduranceState();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class ExtensionsScreen extends StatefulWidget {
-  const ExtensionsScreen({Key? key}) : super(key: key);
+  const ExtensionsScreen({super.key});
 
   @override
   _ExtensionsScreenState createState() => _ExtensionsScreenState();

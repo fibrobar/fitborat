@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class DipScreen extends StatefulWidget {
-  const DipScreen({Key? key}) : super(key: key);
+  const DipScreen({super.key});
 
   @override
   _DipScreenState createState() => _DipScreenState();

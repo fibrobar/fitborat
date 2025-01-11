@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class ButterflyScreen extends StatefulWidget {
-  const ButterflyScreen({Key? key}) : super(key: key);
+  const ButterflyScreen({super.key});
 
   @override
   _ButterflyScreenState createState() => _ButterflyScreenState();
