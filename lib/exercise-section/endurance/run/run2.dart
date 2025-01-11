@@ -30,52 +30,54 @@ class _Run2ScreenState extends State<Run2Screen> {
         title: const Text('Tip 2'),
         backgroundColor: Colors.teal[800],
       ),
-      body: Center(
-        child: _controller.value.isInitialized
-            ? Column(
+      body: SingleChildScrollView(
+        child: Center(
+          child: _controller.value.isInitialized
+              ? Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              ),
+              const SizedBox(height: 3),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AspectRatio(
-                    aspectRatio: _controller.value.aspectRatio,
-                    child: VideoPlayer(_controller),
+                  IconButton(
+                    icon: Icon(
+                      _isPlaying ? Icons.pause : Icons.play_arrow,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        if (_controller.value.isPlaying) {
+                          _controller.pause();
+                        } else {
+                          _controller.play();
+                        }
+                        _isPlaying = _controller.value.isPlaying;
+                      });
+                    },
                   ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        icon: Icon(
-                          _isPlaying ? Icons.pause : Icons.play_arrow,
-                          size: 36,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            if (_controller.value.isPlaying) {
-                              _controller.pause();
-                            } else {
-                              _controller.play();
-                            }
-                            _isPlaying = _controller.value.isPlaying;
-                          });
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.replay, size: 36),
-                        onPressed: () {
-                          _controller.seekTo(Duration.zero);
-                          if (!_controller.value.isPlaying) {
-                            _controller.play();
-                          }
-                          setState(() {
-                            _isPlaying = true;
-                          });
-                        },
-                      ),
-                    ],
+                  IconButton(
+                    icon: const Icon(Icons.replay, size: 30),
+                    onPressed: () {
+                      _controller.seekTo(Duration.zero);
+                      if (!_controller.value.isPlaying) {
+                        _controller.play();
+                      }
+                      setState(() {
+                        _isPlaying = true;
+                      });
+                    },
                   ),
                 ],
-              )
-            : const CircularProgressIndicator(),
+              ),
+            ],
+          )
+              : const CircularProgressIndicator(),
+        ),
       ),
     );
   }
