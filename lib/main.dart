@@ -73,6 +73,7 @@ import 'package:proba/workout-section/workout_endurance.dart';
 import 'package:proba/workout-section/workout_fatloss.dart';
 import 'package:proba/workout-section/workout_musclebuilding.dart';
 
+
 void main() {
   runApp(const MyApp());
 }

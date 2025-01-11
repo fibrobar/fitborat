@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:proba/home_screen.dart'; // Import the HomeScreen class
-import 'package:proba/my_data.dart'; // Import the MyDataScreen class (if needed)
-import 'package:proba/Sign_up_Screen.dart'; // Import the SignUpScreen class
+import 'package:proba/logInScreen.dart'; // Import the LogInScreen class
 
-class LogInScreen extends StatefulWidget {
-  const LogInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  _LogInScreenState createState() => _LogInScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -19,7 +18,7 @@ class _LogInScreenState extends State<LogInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: const Text('FITBORAT'),
+        title: const Text('FITBORAT - Sign Up'),
         backgroundColor: Colors.teal,
         elevation: 0,
       ),
@@ -33,13 +32,13 @@ class _LogInScreenState extends State<LogInScreen> {
               children: <Widget>[
                 const SizedBox(height: 30),
                 const Icon(
-                  Icons.lock,
+                  Icons.person_add,
                   size: 100,
                   color: Colors.teal,
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Welcome Back!',
+                  'Join Us!',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -48,10 +47,29 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  'Please log in to your account',
+                  'Create your account to get started',
                   style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
                 const SizedBox(height: 30),
+                // Name Input Field
+                TextFormField(
+                  controller: _nameController,
+                  decoration: InputDecoration(
+                    labelText: 'Name',
+                    prefixIcon: const Icon(Icons.person, color: Colors.teal),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your name';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 20),
+                // Email Input Field
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
@@ -76,6 +94,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
+                // Password Input Field
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
@@ -97,14 +116,15 @@ class _LogInScreenState extends State<LogInScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // Save email and password to global variables
-                      email = _emailController.text;
-                      password = _passwordController.text;
+                      // Save name, email, and password logic
+                      final String name = _nameController.text;
+                      final String email = _emailController.text;
+                      final String password = _passwordController.text;
 
-                      // Navigate to HomeScreen
+                      // Navigate to LogInScreen after sign up
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const Homescreen()),
+                        MaterialPageRoute(builder: (context) => const LogInScreen()),
                       );
                     }
                   },
@@ -116,7 +136,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     backgroundColor: Colors.teal,
                   ),
                   child: const Text(
-                    'Log In',
+                    'Sign Up',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
@@ -125,18 +145,18 @@ class _LogInScreenState extends State<LogInScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Don't have an account?",
+                      'Already have an account?',
                       style: TextStyle(color: Colors.grey),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                          MaterialPageRoute(builder: (context) => const LogInScreen()),
                         );
                       },
                       child: const Text(
-                        'Sign Up',
+                        'Log In',
                         style: TextStyle(color: Colors.teal),
                       ),
                     ),
