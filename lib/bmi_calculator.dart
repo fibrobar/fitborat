@@ -83,13 +83,13 @@ class _BmiCalculatorScreenState extends State<BmiCalculatorScreen> {
               ElevatedButton(
                 onPressed: _calculateBmi,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
+                  backgroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                   elevation: 10,
-                  shadowColor: Colors.black,
+                  shadowColor: Colors.deepPurple,
                 ),
                 child: const Text(
                   'Calculate',

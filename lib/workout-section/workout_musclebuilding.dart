@@ -12,7 +12,7 @@ class WorkoutMusclebuildingScreen extends StatelessWidget {
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.deepPurple[700],
         elevation: 10,
       ),
       body: Container(
@@ -20,97 +20,109 @@ class WorkoutMusclebuildingScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.blueGrey, Colors.grey],
+            colors: [Colors.deepPurple, Colors.indigo],
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 1',
-                routeName: '/musclebuilding',
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            _buildHeader(),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                itemCount: 9,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      _buildRoutineCard(
+                        context: context,
+                        label: 'Routine ${index + 1}',
+                        routeName: '/musclebuilding${index}',
+                        icon: Icons.fitness_center,
+                      ),
+                      const SizedBox(height: 15),
+                    ],
+                  );
+                },
               ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 2',
-                routeName: '/musclebuilding1',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 3',
-                routeName: '/musclebuilding2',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 4',
-                routeName: '/musclebuilding3',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 5',
-                routeName: '/musclebuilding4',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 6',
-                routeName: '/musclebuilding5',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 7',
-                routeName: '/musclebuilding6',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 8',
-                routeName: '/musclebuilding7',
-              ),
-              const SizedBox(height: 10),
-              _buildExerciseButton(
-                context: context,
-                label: 'Routine 9',
-                routeName: '/musclebuilding8',
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildExerciseButton({
+  Widget _buildHeader() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: const Text(
+        "Choose Your Bodybuilding Routine",
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          shadows: [
+            Shadow(
+              offset: Offset(2, 2),
+              blurRadius: 4,
+              color: Colors.black45,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRoutineCard({
     required BuildContext context,
     required String label,
     required String routeName,
+    required IconData icon,
   }) {
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, routeName);
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blueGrey[500],
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        elevation: 5,
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, routeName),
+      child: Card(
+        elevation: 8,
         shadowColor: Colors.black54,
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              colors: [Colors.deepPurpleAccent, Colors.indigoAccent],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                size: 40,
+                color: Colors.white,
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
+            ],
+          ),
         ),
       ),
     );
