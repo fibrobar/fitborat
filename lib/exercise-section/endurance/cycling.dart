@@ -14,7 +14,6 @@ class CyclingScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.teal[900],
         elevation: 10,
-        shadowColor: Colors.black45,
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -25,41 +24,49 @@ class CyclingScreen extends StatelessWidget {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 20),
-            _buildHeader(),
-            const SizedBox(height: 20),
+            _buildTitle(),
+            const SizedBox(height: 30),
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.all(16),
                 children: [
-                  _buildCyclingCard(
+                  _buildTipCard(
                     context: context,
-                    label: 'Cycling Gear Tips',
-                    routeName: '/gear',
-                    icon: Icons.directions_bike,
+                    label: 'Tip 1: Adjust Your Saddle Height',
+                    description:
+                    'Proper saddle height can improve efficiency and reduce strain.',
+                    routeName: '/ride1',
+                    icon: Icons.settings,
                   ),
-                  const SizedBox(height: 15),
-                  _buildCyclingCard(
+                  const SizedBox(height: 20),
+                  _buildTipCard(
                     context: context,
-                    label: 'Safety Tips',
-                    routeName: '/safety',
-                    icon: Icons.security,
+                    label: 'Tip 2: Warm-Up Before Riding',
+                    description:
+                    'A good warm-up prepares your body for a smoother ride.',
+                    routeName: '/ride2',
+                    icon: Icons.accessibility,
                   ),
-                  const SizedBox(height: 15),
-                  _buildCyclingCard(
+                  const SizedBox(height: 20),
+                  _buildTipCard(
                     context: context,
-                    label: 'Endurance Tips',
-                    routeName: '/endurance',
-                    icon: Icons.accessibility_new,
+                    label: 'Tip 3: Stay Hydrated',
+                    description:
+                    'Always bring water and stay hydrated during your ride.',
+                    routeName: '/ride3',
+                    icon: Icons.local_drink,
                   ),
-                  const SizedBox(height: 15),
-                  _buildCyclingCard(
+                  const SizedBox(height: 20),
+                  _buildTipCard(
                     context: context,
-                    label: 'Cycling Nutrition',
-                    routeName: '/nutrition',
-                    icon: Icons.restaurant,
+                    label: 'Tip 4: Plan Your Route',
+                    description:
+                    'Planning ensures a safer and more enjoyable cycling experience.',
+                    routeName: '/ride4',
+                    icon: Icons.map,
                   ),
                 ],
               ),
@@ -70,11 +77,11 @@ class CyclingScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: const Text(
-        "Explore Cycling Tips",
+  Widget _buildTitle() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Text(
+        "Enhance Your Cycling Experience",
         style: TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.bold,
@@ -87,13 +94,15 @@ class CyclingScreen extends StatelessWidget {
             ),
           ],
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
 
-  Widget _buildCyclingCard({
+  Widget _buildTipCard({
     required BuildContext context,
     required String label,
+    required String description,
     required String routeName,
     required IconData icon,
   }) {
@@ -109,7 +118,7 @@ class CyclingScreen extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
-              colors: [Colors.teal[600]!, Colors.cyan[600]!],
+              colors: [Colors.teal[500]!, Colors.teal[300]!],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -124,13 +133,26 @@ class CyclingScreen extends StatelessWidget {
               ),
               const SizedBox(width: 20),
               Expanded(
-                child: Text(
-                  label,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      label,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      description,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const Icon(
