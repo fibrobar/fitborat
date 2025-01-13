@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proba/home_screen.dart'; // Import the HomeScreen class
-import 'package:proba/my_data.dart'; // Import the MyDataScreen class (if needed)
-import 'package:proba/Sign_up_Screen.dart'; // Import the SignUpScreen class
+import 'Sign_up_Screen.dart';
+import 'home_screen.dart'; // Import the HomeScreen class
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -19,7 +18,7 @@ class _LogInScreenState extends State<LogInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: const Text('FITBORAT'),
+        title: const Text('FITBORAT'),
         backgroundColor: Colors.teal,
         elevation: 0,
       ),
@@ -97,15 +96,20 @@ class _LogInScreenState extends State<LogInScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // Save email and password to global variables
-                      email = _emailController.text;
-                      password = _passwordController.text;
-
-                      // Navigate to HomeScreen
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Homescreen()),
-                      );
+                      // Check if email and password match the saved data
+                      if (_emailController.text == UserData.email &&
+                          _passwordController.text == UserData.password) {
+                        // Navigate to HomeScreen
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Homescreen()),
+                        );
+                      } else {
+                        // Show error message
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Invalid email or password')),
+                        );
+                      }
                     }
                   },
                   style: ElevatedButton.styleFrom(
