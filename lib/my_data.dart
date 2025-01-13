@@ -1,58 +1,44 @@
 import 'package:flutter/material.dart';
-
-// Global variables to hold the email and password
-String email = '';
-String password = '';
-
-// Helper widget to display data in a card
-Widget _buildInfoCard(String title, String data, IconData icon) {
-  return Card(
-    margin: const EdgeInsets.symmetric(horizontal: 30),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-    elevation: 5,
-    child: ListTile(
-      leading: Icon(icon, color: Colors.deepPurple),
-      title: Text(
-        '$title: $data',
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-      ),
-    ),
-  );
-}
+import 'Sign_up_Screen.dart'; // Import the UserData class
 
 class MyDataScreen extends StatelessWidget {
   const MyDataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Use the global variables for email and password
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'My Data',
-          style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
-        ),
-        backgroundColor: Colors.deepPurple[800],
-        centerTitle: true,
-        elevation: 10,
+        title: const Text('My Data'),
+        backgroundColor: Colors.teal,
+        elevation: 0,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.deepPurple, Colors.blueAccent],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _buildInfoCard('Name', UserData.name ?? 'N/A', Icons.person),
+            const SizedBox(height: 20),
+            _buildInfoCard('Email', UserData.email ?? 'N/A', Icons.email),
+            const SizedBox(height: 20),
+            _buildInfoCard('Password', UserData.password ?? 'N/A', Icons.lock),
+          ],
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildInfoCard('Email', email, Icons.email),
-              const SizedBox(height: 20),
-              _buildInfoCard('Password', password, Icons.lock),
-            ],
-          ),
+      ),
+    );
+  }
+
+  // Helper widget to display data in a card
+  Widget _buildInfoCard(String title, String data, IconData icon) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 30),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      elevation: 5,
+      child: ListTile(
+        leading: Icon(icon, color: Colors.teal),
+        title: Text(
+          '$title: $data',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
         ),
       ),
     );
